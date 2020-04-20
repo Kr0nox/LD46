@@ -27,6 +27,7 @@ public class GameUIController : MonoBehaviour {
     
 
     private void Start() {
+        Cursor.visible = false;
         SetItemFill(1,false);
         helpUI.SetActive(false);
         ShowPlantUI(false);
@@ -94,6 +95,7 @@ public class GameUIController : MonoBehaviour {
     }
 
     public void GameOver(int score, string reason) {
+        Cursor.visible = true;
         // string scoreReward = score > 5
         //     ? "That was really good. But maybe you can beat it?"
         //     : "That was good already. But maybe you can be better";
@@ -116,11 +118,13 @@ public class GameUIController : MonoBehaviour {
     }
 
     public void Pause() {
+        Cursor.visible = true;
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
     }
 
     public void Continue() {
+        Cursor.visible = false;
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
     }

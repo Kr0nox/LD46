@@ -47,7 +47,7 @@ public class ToolCan : Tool {
       if (!equipted)
          return;
       if (fill > 0) {
-         foreach (GameObject plant in plants) {
+         foreach (GameObject plant in GameObject.FindGameObjectsWithTag("Plant")) {
             if (Vector2.Distance(transform.position, plant.transform.position) < distancePlant) {
                plant.GetComponent<Plant>().AddWater(0.3f * rate * Time.deltaTime);
                fill -= 0.3f * Time.deltaTime;
